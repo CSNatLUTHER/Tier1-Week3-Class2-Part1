@@ -45,7 +45,7 @@ function createSuit( suitToCreate ){
 }
 
 function createDeck(){
-    const suits = [ 'Spades', 'Hearts', 'Clubs', 'Diamonds', 'Cats']
+    const suits = [ 'Spades', 'Hearts', 'Clubs', 'Diamonds']
 for( let i=0; i<suits.length; i++){
     createSuit( suits[i] );
 }
