@@ -1,5 +1,3 @@
-console.log( 'js' )
-
 /// THIS IS AN OVERVIEW OF OBJECTS
 
 // Our first object (object literal)
@@ -9,15 +7,20 @@ let testCard = {
     value: [1, 14],
     shown: false
 } // end testCard
+console.log( 'The testCard created was', testCard );
 
 // Create all the hearts with a loop
+let deck = []; 
+
 function createSuit( suitToCreate ){
      console.log( 'in createSuit:', suitToCreate);
      // us loop to create all cards in suit
      for( let i=1; i<14; i++){
-         let cardFace;
+        let cardFace;
+         let cardValue = [ i ];
         if( i === 1 ){
             cardFace = "Ace";
+            cardValue.push ( 14 );
          }
         else if( i === 11 ){
             cardFace = 'Jack';
@@ -33,11 +36,21 @@ function createSuit( suitToCreate ){
         }
         let newCard = {
         face: cardFace,
-        values: [ i ],
+        values: cardValue,
         suit: suitToCreate, 
-        shown: false //default value ("hard coded")
+        shown: false //default value ("hard coded");
         }
-        console.log( 'new card:', newCard );
+        deck.push( newCard );
      } // end for loop
 }
-createSuit ( 'Hearts');
+
+function createDeck(){
+    const suits = [ 'Spades', 'Hearts', 'Clubs', 'Diamonds', 'Cats']
+for( let i=0; i<suits.length; i++){
+    createSuit( suits[i] );
+}
+console.log (deck);
+
+} // end createDeck
+
+createDeck();
